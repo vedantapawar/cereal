@@ -48,6 +48,7 @@ endif()
 
 if(NOT CMAKE_VERSION VERSION_LESS 3.0)
     add_library(cereal INTERFACE)
+    add_library(Cereal::cereal ALIAS cereal)
     target_include_directories(cereal INTERFACE
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>
@@ -57,6 +58,7 @@ if(NOT CMAKE_VERSION VERSION_LESS 3.0)
     install(EXPORT cereal FILE cereal-config.cmake
         DESTINATION share/cmake/cereal)
     install(DIRECTORY include/cereal DESTINATION include)
+
 endif()
 
 if(JUST_INSTALL_CEREAL)
